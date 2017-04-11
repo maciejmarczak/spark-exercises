@@ -104,12 +104,12 @@ object MovieSimilarities {
       val results = filteredResults.map(x => (x._2, x._1))
         .sortByKey(ascending = false).take(10)
 
-      println("\nTop 10 similar movies for " + movieNames(movieId))
+      println("\nTop similar movies (max of 10) for " + movieNames(movieId))
 
       for (result <- results) {
         val sim = result._1
         val pair = result._2
-        // Display the similarity result that isn't the movie we're looking at
+
         var similarMovieId = pair._1
         if (similarMovieId == movieId) {
           similarMovieId = pair._2
